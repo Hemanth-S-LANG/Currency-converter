@@ -25,6 +25,7 @@ for (let select of dropdowns) {
 
   select.addEventListener("change", (evt) => {
     updateFlag(evt.target);
+    console.log(evt)
   });
 }
 
@@ -48,6 +49,7 @@ const updateExchangeRate = async () => {
 
 const updateFlag = (element) => {
   let currCode = element.value;
+  console.log(element.value)
   let countryCode = countryList[currCode];
   let newSrc = `https://flagsapi.com/${countryCode}/flat/64.png`;
   let img = element.parentElement.querySelector("img");
@@ -55,10 +57,10 @@ const updateFlag = (element) => {
 };
 
 btn.addEventListener("click", (evt) => {
-  evt.preventDefault();
+  // evt.preventDefault();
   updateExchangeRate();
 });
 
-window.addEventListener("load", () => {
-  updateExchangeRate();
-});
+// window.addEventListener("load", () => {
+//   updateExchangeRate();
+// });
